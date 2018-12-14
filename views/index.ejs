@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Page Title</title>
-</head>
-<body>
-    <ul>
-        <% posts.forEach(function(post){  %>
-            <li>
-                <h1><%= post.title %></h1>
-                <br>
-                <%= post.body %>
-            </li>
-            
+<%- include layout/header -%>
+<ul>
+    <% posts.forEach(function(post){  %>
+        <li>
+            <h1><%= post.title %></h1>
+            <br>
+            <%= post.body %>
+        </li>
+        <br><br><br>
         <% }); %>
     </ul>
+<a href="/create">add</a>   
 
-    <a href="/create">add</a>   
-</body>
-</html>
+<%- include layout/footer -%>
