@@ -6,14 +6,10 @@ database()
   .then(info => {
     console.log(`Connected to ${info.host}:${info.port}/${info.name}`);
     //console.log(info.host, info.port, info.name);
-    // app.listen(config.PORT, ()=> 
-    //   console.log(`Example app listening on port: ${config.port}`)
-    // );
-
     app.listen(config.PORT, ()=> {
-      console.log(`Example app listening on port: ${config.port}`)
+      console.log(`Example app listening on port: ${config.PORT}`)
     });
-})
+}) 
 .catch(()=> {
   console.error('Unable to connect to database');
   process.exit(1)

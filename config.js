@@ -1,4 +1,4 @@
 module.exports = {
     MONGO_URL: 'mongodb://localhost/blog',
-    PORT : process.env.PORT || 5000
+    PORT : process.env.PORT || 5001
 }
