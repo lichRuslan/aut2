@@ -5,9 +5,12 @@ let app = express();
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
-var arr = ['Hello', 'world', 'lol'];
+// var arr = ['Hello', 'world', 'lol'];
 app.get('/', function (req, res) {
-  res.render('index', {arr: arr});
+  Post.find({}).then(posts => {
+    res.render('index', {posts: posts});
+  });
+  //res.render('index', {arr: arr});
 });
 app.get('/create', function (req, res) {
   res.render('create');
@@ -18,7 +21,7 @@ app.post('/create', function (req, res) {
   Post.create({
     title: title,
     body:body
-  }).then(post => console.log(post._id));
+  }).then(post => console.log(post.id));
 
   res.redirect('/');
 });
