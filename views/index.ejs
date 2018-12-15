@@ -1,4 +1,63 @@
 <%- include layout/header -%>
-<h1>Hi</h1>  
+
+
+<div class="main">
+    <div class="container">
+      <div class="content">
+        <div class="post">
+          <div class="top">
+            <h2>Configuration File</h2>
+          </div>
+          <div class="body">
+            <p>
+              The official MongoDB package includes a configuration file (/etc/mongod.conf). These settings (such as the data directory and log directory specifications) take effect upon startup. That is, if you change the configuration file while the MongoDB instance is running, you must restart the instance for the changes to take effect.
+            </p>
+          </div>
+          <div class="bottom">
+            <div class="author">
+              author:
+              <a href="/">Lich</a>
+            </div>
+            <a href="/">Comment</a>
+          </div>
+        </div>
+        <div class="post">
+          <div class="top">
+            <h2>Indexes</h2>
+          </div>
+          <div class="body">
+            <p>
+              Indexes support the efficient execution of queries in MongoDB. Without indexes, MongoDB must perform a collection scan, i.e. scan every document in a collection, to select those documents that match the query statement. If an appropriate index exists for a query, MongoDB can use the index to limit the number of documents it must inspect.
+            </p>
+          </div>
+          <div class="bottom">
+            <div class="author">
+              author:
+              <a href="/">Ruslan</a>
+            </div>
+            <a href="/">Comment</a>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar">
+        <div class="box auth">
+          <h2>Вход</h2>
+          <form method="post">
+            <div class="form-group">
+              <label for="login">Логин</label>
+              <input type="text" id="login" name="login" />
+            </div>
+            <div class="form-group">
+              <label for="password">Пароль</label>
+              <input type="password" id="password" name="password" />
+            </div>
+
+            <button class="login-button">Войти</button>
+          </form>
+        </div>
+        <div class="box">box2</div>
+      </div>
+    </div>
+  </div>
 
 <%- include layout/footer -%>
