@@ -23,6 +23,7 @@ form {
     padding-right: $freeSpace;
     display: flex;
     align-items: center;
+    border-radius: $borderRadius;
   
     &:active {
       box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
@@ -30,10 +31,24 @@ form {
     &:hover {
       text-decoration: none;
     }
+    &:inverse{
+      color: $primaryColor;
+      background-color: $whiteColor;
+    }
+    &:secondary {
+      background-color: $secondaryColor;
+      border: 1px solid $secondaryColor;
+    }
+    &:secondary-inverse{
+      color: $secondaryColor;
+      background-color: $secondaryColor;
+      border: 1px solid $secondaryColor;
+    }
   }
   
   input,
   textarea {
+    border-radius: $borderRadius;
     background-color: $whiteColor;
     border: 1px solid $greyColor;
     display: table;

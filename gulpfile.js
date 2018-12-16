@@ -2,6 +2,8 @@ const gulp = require ('gulp');
 const scss = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const cssnano = require('gulp-cssnano');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
 // const braowserSync  =require('browser-sync');
 const plumber = require ('gulp-plumber');
 gulp.task('scss', ()=>{
@@ -17,6 +19,19 @@ gulp.task('scss', ()=>{
     .pipe(cssnano())
     .pipe(gulp.dest('public/stylesheets'))
 });
-gulp.task('default', ['scss'],()=> {
+
+gulp.task('scripts', ()=>{
+    gulp
+    .src([
+        'dev/js/auth.js',
+        
+    ])
+    .pipe(concat ('scripts.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('public/javascripts'))
+});
+
+gulp.task('default', ['scss', 'scripts'],()=> {
     gulp.watch('dev/scss/**/*.scss', ['scss']);
+    gulp.watch('dev/js/**/*.js', ['scripts']);
 });

@@ -1,12 +1,13 @@
 $blackColor:#333;
 $whiteColor:rgb(255, 255, 255);
+$secondaryColor : rgb(255, 0, 85);
 $greyColor: #e8e8e8;
 $primaryColor: #e7e7e7;
 $linksColor: rgb(74, 0, 158);
 $freeSpace:15px;
 $headerHeight: 49px;
 $footerHeight: 49px;
-
+$borderRadius: 5px;
 @import 'reset';
 @import 'grid';
 @import 'typography';
