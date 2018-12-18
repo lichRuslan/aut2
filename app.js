@@ -4,6 +4,7 @@ const path = require('path');
 const staticAsset = require('static-asset');
 const mongoose = require('mongoose');
 const config = require('./config');
+const routes = require('./routes');
 //database
 mongoose.Promise= global.Promise;
         mongoose.set('debug', config.IS_PRODICTION);
@@ -21,6 +22,7 @@ let app = express();
 app.set('view engine', 'ejs');
 //sets and users
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 app.use(staticAsset(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/javascripts', express.static(path.join(__dirname, 'node_modules', 'jquery', 'dist')));
@@ -29,6 +31,7 @@ app.use('/javascripts', express.static(path.join(__dirname, 'node_modules', 'jqu
 app.get('/', function (req, res) {
   res.render('index');
 });
+app.use('/api/auth', routes.auth);
 
 //error 404 ...
 app.use((req, res, next)=> {
