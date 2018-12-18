@@ -8,6 +8,9 @@ $freeSpace:15px;
 $headerHeight: 49px;
 $footerHeight: 49px;
 $borderRadius: 5px;
+$successColor: rgb(17, 202, 202);
+$errorColor: #e82c0c;
+
 @import 'reset';
 @import 'grid';
 @import 'typography';
