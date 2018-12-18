@@ -1,28 +1,24 @@
 .auth {
-    display: flex;
-    flex-direction: column;
-    border-radius: $borderRadius;
-  
-    h2 {
-      margin-top: 0;
-      font-size: 1.7em;
-    }
-  
-    form {
-      .buttons{
-        display: flex;
-        justify-content: space-between;
+  display: flex;
+  flex-direction: column;
 
-        .button{
-          font-size: 13px;
-          padding-left: 12px;
-          padding-right: 12px;
-        }
+  h2 {
+    margin-top: 0;
+    font-size: 1.7em;
+  }
+
+  form {
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      button {
+        font-size: 13px;
+        padding-left: 12px;
+        padding-right: 12px;
       }
     }
-    .register{
-      display: none;
-      border-radius: $borderRadius;
-    }
   }
-  
+  .register {
+    display: none;
+  }
+}

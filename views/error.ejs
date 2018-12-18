@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= error.status %></title>
+</head>
+<body>
+    <h1><%= message %></h1>
+    <h2><%= error.status %></h2>
+    <!-- <span><%= error.stack %></span> -->
+    <% if (error.status != 404) {%>
+    <%= title %>
+    <% } %>
+    
+</body>
+</html>
