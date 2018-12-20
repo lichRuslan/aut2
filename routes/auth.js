@@ -1,3 +1,4 @@
+/* eslint-disable */
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt-nodejs');
@@ -11,10 +12,21 @@ router.post('/register', (req, res) => {
   const passwordConfirm = req.body.passwordConfirm;
 
   if (!login || !password || !passwordConfirm) {
+    var fields = [];
+    if (!login) fields.push('login');
+    if (!password) fields.push('password');
+    if (!passwordConfirm) fields.push('passwordConfirm');
+
     res.json({
       ok: false,
       error: 'Все поля должны быть заполнены!',
-      fields: ['login', 'password', 'passwordConfirm']
+      fields: fields
+    });
+  } else if (!/^[a-zA-Z0-9]+$/.test(login)){  //проверка на латиницу (нужно полность разобратся как это работает/ регулярый метод)
+    res.json({
+      ok: false,
+      error: 'Пожалуйста введите латинский буквы ! ',
+      fields: ['login']
     });
   } else if (login.length < 3 || login.length > 16) {
     res.json({
@@ -28,7 +40,15 @@ router.post('/register', (req, res) => {
       error: 'Пароли не совпадают!',
       fields: ['password', 'passwordConfirm']
     });
-  } else {
+  } else if  (password.length < 5){
+    res.json({
+      ok: false,
+      error: 'Длина пароля должна быть от 5 символов',
+      fields: ['password', 'passwordConfirm']
+    });
+  }
+  
+  else {
     models.User.findOne({
       login
     }).then(user => {

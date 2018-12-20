@@ -1,9 +1,11 @@
-/* eslint-disable no-undef */
+/* eslint-disable */
 $(function() {
     // toggle
     var flag = true;
     $('.switch-button').on('click', function(e) {
       e.preventDefault();
+
+      $('input').val(''); // обуление input для всех участков, нужно будет укозодь для кокин не нужно  обнуление
   
       if (flag) {
         flag = false;
