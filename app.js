@@ -1,8 +1,11 @@
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const staticAsset = require('static-asset');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const config = require('./config');
 const routes = require('./routes');
 //database
@@ -19,6 +22,29 @@ mongoose.Promise= global.Promise;
         mongoose.connect(config.MONGO_URL, {useMongoClient: true});
 //express
 let app = express();
+
+// sessions
+// app.use(
+//   session({
+//     secret : config.SESSION_SECRET, // крипт (нужно разобратся !!!!!)
+//     resave : true,
+//     saveUninitialized : false,
+//     store: new MongoStore({
+//       mongoConnection : mongoose.connection
+//     })
+//   })
+// );
+app.use(
+  session({ 
+    secret: config.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: false,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection
+    })
+  })
+);
+
 app.set('view engine', 'ejs');
 //sets and users
 app.use(bodyParser.urlencoded({extended: true}));
@@ -29,7 +55,14 @@ app.use('/javascripts', express.static(path.join(__dirname, 'node_modules', 'jqu
 
 //routers
 app.get('/', function (req, res) {
-  res.render('index');
+  const id = req.session.userId;
+  const login = req.session.userLogin;
+  res.render('index', {
+    user : {
+      id,
+      login
+    }
+  });
 });
 app.use('/api/auth', routes.auth);
 
