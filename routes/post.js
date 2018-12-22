@@ -1,7 +1,7 @@
 /* eslint-disable */
 const express = require('express');
 const router = express.Router();
-const models = require('../models');
+// const models = require('../models');
 
 /* */
 router.get('/add', (req,res)=> {
@@ -14,7 +14,13 @@ router.get('/add', (req,res)=> {
         login
         }
     });
-
+});
+// post add
+router.post('/add', (req,res)=> {
+    console.log(req.body);
+    res.json({
+        ok: true
+    });
 });
 
 

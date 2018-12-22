@@ -24,10 +24,12 @@ gulp.task('scripts', ()=>{
     gulp
     .src([
         'dev/js/auth.js',
+        'dev/js/post.js',
+        'node_modules/medium-editor/dist/js/medium-editor.min.js'  // тема для textarea 
         
     ])
     .pipe(concat ('scripts.js'))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest('public/javascripts'))
 });
 

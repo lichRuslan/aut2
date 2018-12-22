@@ -41,10 +41,18 @@
       .buttons{
         display: flex;
         justify-content: flex-end;
+        button {
+          margin-left: $freeSpace *2;
+        }
       }
-      button {
-        margin-left: $freeSpace *2;
+      #post-body {
+        min-height: 200px !important;
+        background-color: $whiteColor !important;
+        border: 1px solid $greyColor !important; 
+        padding: 8px 10px;
+        outline: none;
       }
     }
+
   }
   
