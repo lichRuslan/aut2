@@ -24,4 +24,27 @@
       justify-content: space-between;
     }
   }
+
+  .add-post {
+    margin-bottom: $freeSpace;
+    padding: $freeSpace;
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid $greyColor;
+    background-color: $whiteColor;
+
+    h2{
+      margin-top:0;
+      margin-bottom: 30px; 
+    }
+    form{
+      .buttons{
+        display: flex;
+        justify-content: flex-end;
+      }
+      button {
+        margin-left: $freeSpace *2;
+      }
+    }
+  }
   

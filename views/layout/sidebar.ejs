@@ -41,12 +41,15 @@
           </form>
       <% } else { %>
         <p>
-          Приветб <%= user.login %>! <a href="/api/auth/logout"> -exit-</a>
+          Привет <%= user.login %>! <a href="/api/auth/logout"> -exit-</a>
         </p>
         <% } %>
 
     </div>
     <div class="box">
       <%= user.login %>
+      <%= user.id %>
+      
+
     </div>
   </div>

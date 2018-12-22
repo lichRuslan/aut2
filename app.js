@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -65,6 +65,7 @@ app.get('/', function (req, res) {
   });
 });
 app.use('/api/auth', routes.auth);
+app.use('/post', routes.post);
 
 //error 404 ...
 app.use((req, res, next)=> {

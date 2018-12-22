@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+/* eslint-disable*/
 $(function() {
   // toggle
   var flag = true;
@@ -90,4 +90,4 @@ $(function() {
   });
 });
 
-/* eslint-enable no-undef */
+/* eslint-enable */

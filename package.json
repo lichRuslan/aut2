@@ -28,6 +28,7 @@
     "gulp-sass": "^4.0.1",
     "gulp-uglify": "^3.0.1",
     "jquery": "^3.3.1",
+    "medium-editor": "^5.23.3",
     "mongoose": "^4.13.7",
     "nodemon": "^1.18.8",
     "static-asset": "^0.6.0"
