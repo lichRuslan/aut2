@@ -1,7 +1,7 @@
 /* eslint-disable */
 const express = require('express');
 const router = express.Router();
-// const models = require('../models');
+const models = require('../models');
 
 /* */
 router.get('/add', (req,res)=> {
@@ -17,10 +17,48 @@ router.get('/add', (req,res)=> {
 });
 // post add
 router.post('/add', (req,res)=> {
-    console.log(req.body);
-    res.json({
-        ok: true
-    });
+    const title = req.body.title.trim().replace(/ +(?= )/g, '');
+    const body = req.body.body;
+    if (!title || !body) {
+        var fields = [];
+        if (!title) fields.push('title');
+        if (!body) fields.push('body');
+     
+        res.json({
+          ok: false,
+          error: 'Все поля должны быть заполнены!',
+          fields: fields
+        });
+      } else if (title.length < 3 || title.length > 255) {
+        res.json({
+          ok: false,
+          error: 'Длина заголовка должна быть от 3 до 255 символов!',
+          fields: ['title']
+        });
+      } else if (body.length < 10) {
+        res.json({
+          ok: false,
+          error: 'Длина текста должна быть от 10  символов!',
+          fields: ['body']
+        });
+      } else{
+        models.Post.create({
+            title,
+            body
+        }).then(post => {
+            console.log(post);
+            res.json({
+            ok: true
+            });
+        }).catch(err=> {
+            console.log(err);
+            res.json({
+                ok: false 
+            });
+        });
+
+           
+      }
 });
 
 

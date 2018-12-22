@@ -90,7 +90,7 @@ $(function() {
 });
 
 /* eslint-enable */
-/* eslint-disable no-undef */
+/* eslint-disable  */
 $(function() {
     // eslint-disable-next-line
     var editor = new MediumEditor('#post-body', {
@@ -117,12 +117,12 @@ $(function() {
       }).done(function(data) {
         console.log(data);
         if (!data.ok) {
-          // $('.register h2').after('<p class="error">' + data.error + '</p>');
-          // if (data.fields) {
-          //   data.fields.forEach(function(item) {
-          //     $('input[name=' + item + ']').addClass('error');
-          //   });
-          // }
+          $('.post-form h2').after('<p class="error">' + data.error + '</p>');
+          if (data.fields) {
+            data.fields.forEach(function(item) {
+              $('#post-' + item).addClass('error');
+            });
+          }
         } else {
           // $('.register h2').after('<p class="success">Отлично!</p>');
           // $(location).attr('href', '/');
