@@ -33,7 +33,8 @@
     "mongoose-url-slugs": "^1.0.2",
     "nodemon": "^1.18.8",
     "static-asset": "^0.6.0",
-    "transliter": "^2.2.1"
+    "transliter": "^2.2.1",
+    "turndown": "^5.0.1"
   },
   "devDependencies": {
     "eslint": "^5.10.0",

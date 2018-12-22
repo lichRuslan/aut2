@@ -1,5 +1,7 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+/* eslint-disable  */
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+// var TurndownService = require('turndown')
 const URLSlugs = require('mongoose-url-slugs'); // надо разобратся - нужна для создание url для поста 
 const tr = require('transliter'); // переводит текст для чтения URLSlugs
 

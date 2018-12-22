@@ -7,6 +7,12 @@ $(function() {
         hideOnClick: true
       }
     });
+
+        // clear
+  // $('form.title input, #post-body').on('focus', function() {
+  //   $('form.title input, #post-body').remove();
+  //   $('input, div').removeClass('error');
+  // });
   
     // publish
     $('.publish-button').on('click', function(e) {
@@ -33,7 +39,7 @@ $(function() {
           }
         } else {
           // $('.register h2').after('<p class="success">Отлично!</p>');
-          // $(location).attr('href', '/');
+          $(location).attr('href', '/');
         }
       });
     });

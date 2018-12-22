@@ -20,9 +20,9 @@ $(function() {
   });
 
   // clear
-  $('input').on('focus', function() {
-    $('p.error').remove();
-    $('input').removeClass('error');
+  $('form.login input, form.password input').on('focus', function() {
+    $('form.login p.error, form.password p.error').remove();
+    $('form.login input, form.password input').removeClass('error');
   });
 
   // register

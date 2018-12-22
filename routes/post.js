@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const models = require('../models');
+const TurndownService = require('turndown'); // нужен для формировки текого при записывании в базу (исключает теги)
 
 /* */
 router.get('/add', (req,res)=> {
@@ -19,6 +20,7 @@ router.get('/add', (req,res)=> {
 router.post('/add', (req,res)=> {
     const title = req.body.title.trim().replace(/ +(?= )/g, '');
     const body = req.body.body;
+    const turndownService = new TurndownService()
     if (!title || !body) {
         var fields = [];
         if (!title) fields.push('title');
@@ -44,7 +46,7 @@ router.post('/add', (req,res)=> {
       } else{
         models.Post.create({
             title,
-            body
+            body : turndownService.turndown(body)
         }).then(post => {
             console.log(post);
             res.json({
