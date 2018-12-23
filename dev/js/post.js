@@ -7,16 +7,20 @@ $(function() {
         hideOnClick: true
       }
     });
-
+    function removeErorrs(){
+      //remove errors
+      $('.post-form p.error').remove();
+      $('.post-form inpput, #post-body ').removeClass('error');
+    }
         // clear
-  // $('form.title input, #post-body').on('focus', function() {
-  //   $('form.title input, #post-body').remove();
-  //   $('input, div').removeClass('error');
-  // });
+  $('.post-form input, #post-body').on('focus', function() {
+    removeErorrs();
+  });
   
     // publish
     $('.publish-button').on('click', function(e) {
       e.preventDefault();
+      removeErorrs();
   
       var data = {
         title: $('#post-title').val(),

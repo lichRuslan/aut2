@@ -1,12 +1,18 @@
 /* eslint-disable*/
 $(function() {
+  function removeErorrs(){
+    //remove errors
+    $('form.login p.error, form.password p.error').remove();
+    $('form.login input, form.password input').removeClass('error');
+  }
   // toggle
   var flag = true;
   $('.switch-button').on('click', function(e) {
     e.preventDefault();
     $('input').val('');
-    $('p.error').remove();
-    $('input').removeClass('error');
+    removeErorrs()
+    // $('p.error').remove();
+    // $('input').removeClass('error');
 
     if (flag) {
       flag = false;
@@ -21,15 +27,13 @@ $(function() {
 
   // clear
   $('form.login input, form.password input').on('focus', function() {
-    $('form.login p.error, form.password p.error').remove();
-    $('form.login input, form.password input').removeClass('error');
+    removeErorrs();
   });
 
   // register
   $('.register-button').on('click', function(e) {
     e.preventDefault();
-    $('p.error').remove();
-    $('input').removeClass('error');
+    removeErorrs();
 
     var data = {
       login: $('#register-login').val(),
@@ -60,8 +64,7 @@ $(function() {
   // login
   $('.login-button').on('click', function(e) {
     e.preventDefault();
-    $('p.error').remove();
-    $('input').removeClass('error');
+    removeErorrs();
 
     var data = {
       login: $('#login-login').val(),
