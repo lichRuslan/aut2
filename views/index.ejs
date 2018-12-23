@@ -2,40 +2,39 @@
 <div class="main">
     <div class="container">
       <div class="content">
-        <div class="post">
-          <div class="top">
-            <h2>Configuration File</h2>
-          </div>
-          <div class="body">
-            <p>
-              The official MongoDB package includes a configuration file (/etc/mongod.conf). These settings (such as the data directory and log directory specifications) take effect upon startup. That is, if you change the configuration file while the MongoDB instance is running, you must restart the instance for the changes to take effect.
-            </p>
-          </div>
-          <div class="bottom">
-            <div class="author">
-              author:
-              <a href="/">Lich</a>
+          <% for (var i = 0; i < posts.length; i++) { %>
+            <div class="post">
+              <div class="top">
+                <h2>
+                  <%=posts[i].title %>
+                </h2>
+              </div>
+              <div class="body">
+                <p><%=posts[i].body %></p>
+              </div>
+              <div class="bottom">
+                <div class="author">
+                  Автор:
+                  <a href="/">Гедеван</a>
+                </div>
+                <a href="/">Комментарии</a>
+              </div>
             </div>
-            <a href="/">Comment</a>
-          </div>
-        </div>
-        <div class="post">
-          <div class="top">
-            <h2>Indexes</h2>
-          </div>
-          <div class="body">
-            <p>
-              Indexes support the efficient execution of queries in MongoDB. Without indexes, MongoDB must perform a collection scan, i.e. scan every document in a collection, to select those documents that match the query statement. If an appropriate index exists for a query, MongoDB can use the index to limit the number of documents it must inspect.
-            </p>
-          </div>
-          <div class="bottom">
-            <div class="author">
-              author:
-              <a href="/">Ruslan</a>
-            </div>
-            <a href="/">Comment</a>
-          </div>
-        </div>
+            <% } %>
+            
+            <div class="pagination">
+                <% if (current > 2) { %>
+                  <a class="new" href="/archive/<%= Number(current) - 1 %>">← К новым</a>
+                  <% } %>
+                    <% if (current == 2) { %>
+                      <a class="new" href="/">← На главную</a>
+                      <% } %>
+                        <% if (pages > 0 && current < pages) { %>
+                          <a class="old" href="/archive/<%= Number(current) + 1 %>">К старым →</a>
+                          <% } %>
+  
+              </div>
+
       </div>
       <%- include layout/sidebar -%>
     </div>

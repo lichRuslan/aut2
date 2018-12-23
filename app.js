@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const config = require('./config');
-const routes = require('./routes');
 // const mocks = require('./mocks');// фейковые данные (лень заполнять данные)
 //database
 mongoose.Promise= global.Promise;
@@ -55,20 +54,11 @@ app.use(staticAsset(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/javascripts', express.static(path.join(__dirname, 'node_modules', 'jquery', 'dist')));
 
-//routers
-app.get('/', function (req, res) {
-  const id = req.session.userId;
-  const login = req.session.userLogin;
-  res.render('index', {
-    user : {
-      id,
-      login
-    }
-  });
-});
+// routes
+const routes = require('./routes');
+app.use('/', routes.archive);
 app.use('/api/auth', routes.auth);
 app.use('/post', routes.post);
-
 //error 404 ...
 app.use((req, res, next)=> {
   let err  = new Error('Not Found');
