@@ -1,4 +1,4 @@
-<%- include layout/header -%>
+<%- include ../layout/header -%>
 <div class="main">
     <div class="container">
       <div class="content">
@@ -17,7 +17,7 @@
               <div class="bottom">
                 <div class="author">
                   Автор:
-                  <a href="/">Гедеван</a>
+                  <a href="/users/<%=posts[i].owner.login %>"><%=posts[i].owner.login %></a>
                 </div>
                 <a href="/">Комментарии</a>
               </div>
@@ -38,8 +38,8 @@
               </div>
 
       </div>
-      <%- include layout/sidebar -%>
+      <%- include ../layout/sidebar -%>
     </div>
   </div>
 
-<%- include layout/footer -%>
+<%- include ../layout/footer -%>

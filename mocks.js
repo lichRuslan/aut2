@@ -3,7 +3,7 @@
 const faker = require('faker');
 const models = require('./models');
 const TurndownService = require('turndown');
-const owner = '5c1f03de7037f924e91ccefb';
+const owner = '5c2630b781ee3c42610fa303';
 module.exports = () => {
     models.Post.remove().then(()=>{
         Array.from({length:20}).forEach(() => {
